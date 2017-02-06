@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h1>Group</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<h2>Members</h2>
+  <% @group.users.each do |u| %>
+    <p>
+      <%= link_to u.name, group_user_path(u) %>
+      <%= link_to 'Destroy', group_user_path(u), method: :delete %>
+    </p>
+
+  <% end %>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
